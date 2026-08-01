@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #080809;
+  --color-accent-neon: #D9FF00;
+  --color-accent-neon-hover: #e5ff33;
+  --font-grotesk: 'Cabinet Grotesk', 'Satoshi', 'Syne', 'Bricolage Grotesque', sans-serif;
+  --font-editorial: 'Instrument Serif', 'Cormorant Garamond', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --bg-dark: #080809;
+  --accent-neon: #D9FF00;
+  --accent-neon-hover: #e5ff33;
+  --font-grotesk: 'Cabinet Grotesk', 'Satoshi', 'Syne', 'Bricolage Grotesque', sans-serif;
+  --font-editorial: 'Instrument Serif', 'Cormorant Garamond', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-neon);
+  color: #080809;
+}
+
+/* Typography Utility Classes */
+.font-grotesk {
+  font-family: var(--font-grotesk);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-mono-custom {
+  font-family: var(--font-mono);
+}
+
+/* Premium Editorial Overlap Separation Effect */
+.editorial-overlap {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: #ffffff;
+  -webkit-text-stroke: 6px #080809;
+  paint-order: stroke fill;
+  text-shadow:
+    0 2px 14px rgba(8, 8, 9, 0.95),
+    -3px 3px 0 #080809,
+    3px -3px 0 #080809,
+    -3px -3px 0 #080809,
+    3px 3px 0 #080809,
+    -3px 0 0 #080809,
+    3px 0 0 #080809,
+    0 -3px 0 #080809,
+    0 3px 0 #080809;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.editorial-overlap:hover {
+  opacity: 0.95;
+}
