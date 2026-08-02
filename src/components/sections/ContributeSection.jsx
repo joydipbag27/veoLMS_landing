@@ -85,19 +85,10 @@ export default function ContributeSection({ onToast }) {
           </div>
 
           {/* Headline */}
-          <div className="flex flex-col items-start text-left mb-6">
-            <h2 className="font-grotesk font-extrabold uppercase text-white text-[3rem] sm:text-[4.2rem] md:text-[4.8rem] leading-[0.95] tracking-tight">
-              Help shape
+          <div className="flex flex-col items-start text-left mb-4">
+            <h2 className="font-grotesk font-extrabold text-2xl sm:text-3xl md:text-4xl text-white tracking-tight leading-snug">
+              Help shape the future of <span className="font-editorial italic font-normal text-white">VeoLMS.</span>
             </h2>
-            <h2 className="font-grotesk font-extrabold uppercase text-white text-[3rem] sm:text-[4.2rem] md:text-[4.8rem] leading-[0.95] tracking-tight">
-              the future
-            </h2>
-            <div className="font-editorial italic text-white text-[2.8rem] sm:text-[4rem] md:text-[4.5rem] leading-[0.9] tracking-tight font-normal mt-1">
-              <span className="relative inline-block">
-                of VeoLMS.
-                <ShapeFutureUnderline />
-              </span>
-            </div>
           </div>
 
           {/* Supporting Copy */}

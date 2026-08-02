@@ -170,28 +170,19 @@ function PrincipleCard({ card }) {
 export default function PrinciplesSection() {
   return (
     <section className="w-full max-w-6xl mx-auto px-6 py-20 md:py-32 relative z-10">
-      {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16 select-none">
-        <div className="inline-flex items-center gap-2.5 font-mono text-[0.72rem] md:text-xs uppercase tracking-widest text-[#D9FF00] mb-6">
+      {/* Section Header - Distinct Bento Section Layout */}
+      <div className="mb-12 sm:mb-16 select-none max-w-2xl">
+        <div className="inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-widest text-[#D9FF00] mb-3">
           <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
           <span className="text-slate-300 font-semibold">OUR PRINCIPLES</span>
         </div>
 
-        <div className="select-none flex flex-col items-center">
-          <h2 className="font-grotesk font-extrabold uppercase text-white text-[3.2rem] sm:text-[5.2rem] md:text-[6.4rem] leading-[0.9] tracking-tight text-center">
-            Everything starts
-          </h2>
-          <div className="font-editorial italic text-white text-[3rem] sm:text-[4.8rem] md:text-[6rem] leading-[0.9] tracking-tight text-center font-normal mt-1 sm:mt-2">
-            <span>with </span>
-            <span className="relative inline-block">
-              ownership.
-              <OwnershipUnderline />
-            </span>
-          </div>
-        </div>
+        <h2 className="font-grotesk font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
+          Everything starts <span className="font-editorial italic font-normal text-white">with ownership.</span>
+        </h2>
 
-        <p className="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mt-6 font-normal max-w-2xl mx-auto">
-          Because educators should own their platform—not adapt to someone else's.
+        <p className="text-slate-400 text-sm sm:text-base leading-relaxed mt-3 font-normal max-w-xl">
+          Educators should own their platform, data, and brand—without vendor lock-in or artificial limits.
         </p>
       </div>
 

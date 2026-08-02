@@ -19,7 +19,7 @@ const roadmapData = [
     id: 'q1-2025',
     quarter: 'Q1',
     year: '2025',
-    isCompleted: false,
+    isCompleted: true,
     accentColor: '#ffffff',
     textColor: 'text-slate-200',
     dotBg: 'bg-white',

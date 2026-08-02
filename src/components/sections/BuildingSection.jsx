@@ -45,28 +45,21 @@ export default function BuildingSection() {
   return (
     <section className="w-full max-w-5xl mx-auto px-6 py-20 md:py-32 relative z-10">
       
-      {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16 select-none">
-        <div className="inline-flex items-center gap-2.5 font-mono text-[0.72rem] md:text-xs uppercase tracking-widest text-[#D9FF00] mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
-          <span className="text-slate-300 font-semibold">WHAT WE'RE BUILDING</span>
-        </div>
-
-        <div className="select-none flex flex-col items-center">
-          <h2 className="font-grotesk font-extrabold uppercase text-white text-[3.2rem] sm:text-[5rem] md:text-[6rem] leading-[0.9] tracking-tight text-center">
-            Everything we're building
-          </h2>
-          <div className="font-editorial italic text-white text-[3rem] sm:text-[4.6rem] md:text-[5.6rem] leading-[0.9] tracking-tight text-center font-normal mt-1 sm:mt-2">
-            <span>for </span>
-            <span className="relative inline-block">
-              modern education.
-              <EducationBuildingUnderline />
-            </span>
+      {/* Section Header - Unique Workflow Layout */}
+      <div className="mb-12 sm:mb-16 select-none flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+        <div>
+          <div className="inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-widest text-[#D9FF00] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
+            <span className="text-slate-300 font-semibold">CAPABILITIES</span>
           </div>
+
+          <h2 className="font-grotesk font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
+            Everything for <span className="font-editorial italic font-normal text-white">modern education.</span>
+          </h2>
         </div>
 
-        <p className="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mt-6 font-normal max-w-2xl mx-auto">
-          A growing platform designed to give creators, institutions, and organizations everything they need to build modern learning experiences.
+        <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-normal max-w-md">
+          A modular platform giving creators, institutions, and organizations total freedom to build, structure, and scale online learning.
         </p>
       </div>
 
