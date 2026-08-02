@@ -31,70 +31,64 @@ const SpinnerDottedIcon = ({ className = "w-3.5 h-3.5" }) => (
 
 export default function VisionSection() {
   return (
-    <section className="w-full max-w-5xl mx-auto px-6 py-20 md:py-28 relative z-10 text-center flex flex-col items-center justify-center">
+    <section className="w-full max-w-5xl mx-auto px-6 py-20 md:py-28 relative z-10 text-center flex flex-col items-center justify-center select-none">
 
       {/* Top Tag: • OUR VISION */}
       <div className="flex items-center gap-2.5 font-mono text-[0.72rem] md:text-xs uppercase tracking-widest text-[#D9FF00] mb-8 select-none">
         <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
         <span className="text-slate-300 font-semibold">OUR VISION</span>
-        </div>
+      </div>
 
-      {/* Main Headline */}
-      <div className="select-none flex flex-col items-center">
-        <h2 className="font-grotesk font-extrabold text-white text-[3.6rem] sm:text-[5.8rem] md:text-[7.2rem] lg:text-[8rem] leading-[0.9] tracking-tight text-center">
-          Education
-        </h2>
-        <h2 className="font-grotesk font-extrabold text-white text-[3.6rem] sm:text-[5.8rem] md:text-[7.2rem] lg:text-[8rem] leading-[0.9] tracking-tight text-center">
-          deserves
-        </h2>
-        <div className="font-editorial italic text-white text-[3.2rem] sm:text-[5.2rem] md:text-[6.6rem] lg:text-[7.5rem] leading-[0.9] tracking-tight text-center font-normal mt-1 sm:mt-2">
-          <span>an open </span>
-          <span className="relative inline-block">
-            foundation.
+      {/* Distinct Vision Statement Headline - Fluid & Proportional */}
+      <div className="max-w-4xl mx-auto">
+        <h2 className="font-grotesk font-extrabold text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.15] text-center">
+          Education deserves{' '}
+          <span className="font-editorial italic font-normal text-white relative inline-block">
+            an open foundation.
             <FoundationUnderline />
           </span>
-        </div>
+        </h2>
       </div>
 
       {/* Paragraph Copy */}
-      <div className="mt-10 max-w-2xl mx-auto text-center px-4 space-y-4">
+      <div className="mt-8 max-w-2xl mx-auto text-center px-4 space-y-4">
         <p className="text-slate-300 text-base sm:text-lg md:text-[1.15rem] leading-relaxed font-normal">
           Most learning platforms ask educators to adapt to their software.<br className="hidden sm:inline" />
           We believe software should adapt to educators instead.
-          </p>
+        </p>
 
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
           VeoLMS is being built as an open platform where creators, institutions, and organizations have the freedom to build, customize, and grow—without unnecessary limitations.
-          </p>
-        </div>
+        </p>
+      </div>
 
-        {/* Three Pillars Row */}
+      {/* Three Pillars Row */}
       <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 font-medium text-xs sm:text-sm text-white">
-          
+        
         {/* Pillar 1 */}
-        <div className="flex items-center gap-2 px-4 sm:border-r sm:border-white/15">
+        <div className="flex items-center gap-2 px-6 sm:border-r sm:border-white/15">
           <CloudPublicIcon className="w-4 h-4 text-[#D9FF00]" />
           <span>Built in public.</span>
-          </div>
+        </div>
 
         {/* Pillar 2 */}
-        <div className="flex items-center gap-2 px-4 sm:border-r sm:border-white/15">
+        <div className="flex items-center gap-2 px-6 sm:border-r sm:border-white/15">
           <CodeBracketsIcon className="w-4 h-4 text-[#D9FF00]" />
           <span>Open by design.</span>
-          </div>
+        </div>
 
         {/* Pillar 3 */}
-        <div className="flex items-center gap-2 px-4">
+        <div className="flex items-center gap-2 px-6">
           <CommunityUsersIcon className="w-4 h-4 text-[#D9FF00]" />
           <span>Driven by the community.</span>
-          </div>
-
         </div>
+
+      </div>
 
       {/* Bottom Status Badge */}
       <div className="mt-12">
         <div className="inline-flex items-center gap-2.5 bg-white/[0.02] border border-white/20 hover:border-white/40 text-slate-300 px-5 py-2.5 rounded-full font-mono text-[0.72rem] tracking-wider uppercase transition-colors">
-            <SpinnerDottedIcon className="w-3.5 h-3.5 text-[#D9FF00]" />
+          <SpinnerDottedIcon className="w-3.5 h-3.5 text-[#D9FF00]" />
           <span>UNDER ACTIVE DEVELOPMENT</span>
         </div>
       </div>

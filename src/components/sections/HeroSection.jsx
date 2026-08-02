@@ -42,7 +42,7 @@ export default function HeroSection({ onToast }) {
       </div>
 
       {/* Supporting Copy */}
-      <div className="mt-6 md:mt-8 max-w-[90vw] sm:max-w-[70vw] md:max-w-[48vw] mx-auto relative z-10 px-4">
+      <div className="mt-6 md:mt-4 max-w-[90vw] sm:max-w-[70vw] md:max-w-[48vw] mx-auto relative z-10 px-4">
         <p className="text-slate-400 text-sm md:text-base leading-relaxed font-normal">
           Build your own learning platform with complete ownership of your brand, content, users, and data. Open source, self-hostable, and built for modern education.
         </p>
