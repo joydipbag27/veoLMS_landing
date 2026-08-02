@@ -3,7 +3,21 @@ import { OpenEducationUnderline } from '../doodles/Doodles';
 import { GithubIcon, DiscordIcon } from '../common/Icons';
 import { ArrowUpRight } from 'lucide-react';
 
+import futureBgImage from '../../assets/mymind-tZCrFpSNiIQ-unsplash.jpg';
+
 export default function FinalCtaFooterSection({ onToast }) {
+  // Image mask style for the word "future"
+  const futureMaskStyle = {
+    backgroundImage: `url("${futureBgImage}")`,
+    backgroundSize: '100% 200%',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent'
+  };
+
   return (
     <section className="w-full bg-[#080809] border-t border-white/10 relative z-10 pt-24 pb-12 overflow-hidden">
       
@@ -22,7 +36,8 @@ export default function FinalCtaFooterSection({ onToast }) {
           {/* Headline */}
           <div className="select-none flex flex-col items-center mb-8">
             <h2 className="font-grotesk font-extrabold uppercase text-white text-[3.2rem] sm:text-[5rem] md:text-[6.2rem] leading-[0.9] tracking-tight text-center">
-              Ready to build the future
+              Ready to build the{' '}
+              <span style={futureMaskStyle}>future</span>
             </h2>
             <div className="font-editorial italic text-white text-[3rem] sm:text-[4.6rem] md:text-[5.8rem] leading-[0.9] tracking-tight text-center font-normal mt-1 sm:mt-2">
               <span className="relative inline-block">
@@ -161,7 +176,7 @@ export default function FinalCtaFooterSection({ onToast }) {
 
           {/* Sub-bar License Credit */}
           <div className="uppercase tracking-widest text-[0.68rem] text-slate-400 shrink-0">
-            © 2026 VEOLMS — AGPL-3.0 LICENSE
+            © {new Date().getFullYear()} VEOLMS — AGPL-3.0 LICENSE
           </div>
 
         </div>

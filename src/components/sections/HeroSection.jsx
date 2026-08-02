@@ -7,7 +7,21 @@ import {
   BottomCircleBadge
 } from '../doodles/Doodles';
 
+import heroBgImage from '../../assets/brandon-griggs-AhesR5WiAdc-unsplash.jpg';
+
 export default function HeroSection({ onToast }) {
+  // Image mask style for "MODERN"
+  const modernMaskStyle = {
+    backgroundImage: `url(${heroBgImage})`,
+    backgroundSize: '100% 200%',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent'
+  };
+
   return (
     <section className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-6 md:py-12 w-full max-w-6xl mx-auto relative z-10 text-center">
 
@@ -19,22 +33,23 @@ export default function HeroSection({ onToast }) {
         <RightStickerBadge text="Self-Hostable" />
         <BottomCircleBadge text="v1.0 BETA" />
 
-        {/* Line 1: THE OPEN */}
+        {/* Line 1: THE OPEN (Solid White) */}
         <div className="font-grotesk font-bold uppercase text-white tracking-tight text-[3.2rem] sm:text-[5.8rem] md:text-[7.8rem] lg:text-[9.2rem] xl:text-[10rem] leading-[0.9]">
           THE OPEN
         </div>
 
-        {/* Line 2: Platform */}
+        {/* Line 2: Platform (Solid White) */}
         <div className="editorial-overlap relative z-20 font-editorial italic text-white text-[2.9rem] sm:text-[5.1rem] md:text-[6.8rem] lg:text-[8.1rem] xl:text-[8.4rem] leading-[0.9] -mt-4 sm:-mt-8 md:-mt-1 lg:-mt-10 ml-3 sm:ml-6 md:ml-10 lg:ml-8 cursor-default">
           Platform
         </div>
 
-        {/* Line 3: FOR MODERN */}
-        <div className="font-grotesk font-bold uppercase text-white tracking-tight text-[3.2rem] sm:text-[5.8rem] md:text-[7.8rem] lg:text-[9.2rem] xl:text-[10rem] leading-[0.9] mt-2 sm:mt-4 md:-mt-3">
-          FOR MODERN
+        {/* Line 3: FOR MODERN (Image Masked ONLY on MODERN) */}
+        <div className="font-grotesk font-bold uppercase tracking-tight text-[3.2rem] sm:text-[5.8rem] md:text-[7.8rem] lg:text-[9.2rem] xl:text-[10rem] leading-[0.9] mt-2 sm:mt-4 md:-mt-3">
+          <span className="text-white">FOR </span>
+          <span style={modernMaskStyle}>MODERN</span>
         </div>
 
-        {/* Line 4: Education */}
+        {/* Line 4: Education (Solid White) */}
         <div className="editorial-overlap relative z-20 font-editorial italic text-white text-[2.9rem] sm:text-[5.1rem] md:text-[6.8rem] lg:text-[8.1rem] xl:text-[8.8rem] leading-[0.9] -mt-4 sm:-mt-8 md:-mt-11 lg:-mt-10 ml-4 sm:ml-8 md:ml-14 lg:ml-8 relative inline-block cursor-default">
           Education
         </div>
