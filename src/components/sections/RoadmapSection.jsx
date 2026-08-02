@@ -1,319 +1,233 @@
-import React, { useState } from 'react';
-import { BuildingPublicUnderline } from '../doodles/Doodles';
+import React from 'react';
 
-const roadmapPhases = [
+const roadmapData = [
   {
-    id: 'foundation',
-    phaseNum: '01',
-    title: 'Foundation',
-    status: 'Released',
-    statusBg: 'bg-[#D9FF00] text-[#080809]',
-    statusBorder: 'border-[#D9FF00]',
-    accentColor: '#D9FF00',
-    checkpoints: [
-      { name: 'Authentication', desc: 'Enterprise-grade OAuth, session cookies, and RBAC' },
-      { name: 'Users', desc: 'Student and instructor profile schema management' },
-      { name: 'Courses', desc: 'Course creation, metadata engine, and module structure' },
-      { name: 'Enrollments', desc: 'Automated student enrollment and course access locks' }
-    ],
-    description: 'Core engine and CLI starter templates establishing security, authentication, and base database schemas.'
+    id: 'q4-2024',
+    quarter: 'Q4',
+    year: '2024',
+    isCompleted: true,
+    accentColor: '#ec4899', // Magenta Pink
+    textColor: 'text-[#f472b6]',
+    dotBg: 'bg-[#ec4899]',
+    lineBg: 'bg-[#ec4899]',
+    items: [
+      { text: 'INTERNAL CORE ENGINE AUDIT', isHighlighted: true },
+      { text: 'SECURITY & RBAC ARCHITECTURE', isHighlighted: true }
+    ]
   },
   {
-    id: 'learning-experience',
-    phaseNum: '02',
-    title: 'Learning Experience',
-    status: 'In Progress',
-    statusBg: 'bg-[#a5b4fc] text-[#0f172a]',
-    statusBorder: 'border-[#a5b4fc]',
-    accentColor: '#a5b4fc',
-    checkpoints: [
-      { name: 'Video Streaming', desc: 'HLS adaptive bitrate playback with chapter markers' },
-      { name: 'Assignments', desc: 'Student submissions, instructor grading, and feedback' },
-      { name: 'Certificates', desc: 'Dynamic PDF certificate generation on course completion' }
-    ],
-    description: 'HLS adaptive video player, interactive student quizzes, and automated certification engine.'
+    id: 'q1-2025',
+    quarter: 'Q1',
+    year: '2025',
+    isCompleted: false,
+    accentColor: '#ffffff',
+    textColor: 'text-slate-200',
+    dotBg: 'bg-white',
+    lineBg: 'bg-white',
+    items: [
+      { text: 'INTERNAL TESTNET LAUNCH', isHighlighted: true },
+      { text: 'HLS ADAPTIVE VIDEO ENGINE', isHighlighted: true }
+    ]
   },
   {
-    id: 'platform',
-    phaseNum: '03',
-    title: 'Platform',
-    status: 'Planned',
-    statusBg: 'bg-[#38bdf8] text-[#080809]',
-    statusBorder: 'border-[#38bdf8]',
-    accentColor: '#38bdf8',
-    checkpoints: [
-      { name: 'Plugin SDK', desc: 'Clean extension hooks for third-party integrations' },
-      { name: 'Themes', desc: 'Custom white-label CSS theme generator' },
-      { name: 'API', desc: 'Comprehensive REST and GraphQL developer endpoints' },
-      { name: 'Storage', desc: 'S3, R2, and local file storage adapters' }
-    ],
-    description: 'Extensible plugin marketplace, custom white-label theme engine, and multi-tenant cloud infrastructure.'
+    id: 'mainnet',
+    isMainnetCard: true,
+    quarter: 'Q2',
+    year: '2025',
+    title: 'MAINNET LAUNCH',
+    subtitle: 'V1.0 PUBLIC RELEASE'
+  },
+  {
+    id: 'q2-2025',
+    quarter: 'Q2',
+    year: '2025',
+    isCompleted: false,
+    accentColor: '#ffffff',
+    textColor: 'text-slate-200',
+    dotBg: 'bg-white',
+    lineBg: 'bg-white',
+    items: [
+      { text: 'DYNAMIC SUBSCRIPTION PROGRAM', isHighlighted: false },
+      { text: 'INTERACTIVE ASSIGNMENT ENGINE', isHighlighted: false },
+      { text: 'AUTOMATED CERTIFICATES API', isHighlighted: false }
+    ]
+  },
+  {
+    id: 'q3-2025',
+    quarter: 'Q3',
+    year: '2025',
+    isCompleted: false,
+    accentColor: '#ffffff',
+    textColor: 'text-slate-200',
+    dotBg: 'bg-white',
+    lineBg: 'bg-white',
+    items: [
+      { text: 'ADVANCED ANALYTICS & MONITORING', isHighlighted: false },
+      { text: 'WHITE-LABEL THEMES ENGINE', isHighlighted: false }
+    ]
+  },
+  {
+    id: 'q4-2025',
+    quarter: 'Q4',
+    year: '2025',
+    isCompleted: false,
+    accentColor: '#ffffff',
+    textColor: 'text-slate-200',
+    dotBg: 'bg-white',
+    lineBg: 'bg-white',
+    items: [
+      { text: 'EXTENSIBLE PLUGIN SDK & MARKETPLACE', isHighlighted: false },
+      { text: 'HYBRID CLOUD STORAGE ADAPTERS', isHighlighted: false }
+    ]
   }
 ];
 
 export default function RoadmapSection() {
-  const [activePhase, setActivePhase] = useState('foundation');
-  const [hoveredCp, setHoveredCp] = useState(null);
-
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 py-20 md:py-32 relative z-10">
+    <section className="w-full max-w-7xl mx-auto px-6 py-20 md:py-28 relative z-10 select-none overflow-hidden">
       
-      {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-20 select-none">
-        <div className="inline-flex items-center gap-2.5 font-mono text-[0.72rem] md:text-xs uppercase tracking-widest text-[#D9FF00] mb-6">
+      {/* Background Dark Polyhedral Aesthetic matching reference */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+          <polygon points="0,0 600,0 450,600 0,600" fill="#0d0e14" opacity="0.6" />
+          <polygon points="600,0 1200,0 1200,600 800,600" fill="#12131b" opacity="0.4" />
+          <polygon points="450,600 800,600 1200,200 300,100" fill="#090a0e" opacity="0.8" />
+        </svg>
+      </div>
+
+      {/* Section Header - Compact & Left-Aligned */}
+      <div className="relative z-10 mb-12 sm:mb-16 select-none max-w-2xl">
+        <div className="inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-widest text-[#D9FF00] mb-3">
           <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
           <span className="text-slate-300 font-semibold">ROADMAP</span>
         </div>
 
-        <div className="select-none flex flex-col items-center">
-          <h2 className="font-grotesk font-extrabold uppercase text-white text-[3.2rem] sm:text-[5rem] md:text-[6.2rem] leading-[0.9] tracking-tight text-center">
-            Building
-          </h2>
-          <div className="font-editorial italic text-white text-[3rem] sm:text-[4.6rem] md:text-[5.8rem] leading-[0.9] tracking-tight text-center font-normal mt-1 sm:mt-2">
-            <span className="relative inline-block">
-              in public.
-              <BuildingPublicUnderline />
-            </span>
-          </div>
-        </div>
+        <h2 className="font-grotesk font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
+          Building <span className="font-editorial italic font-normal text-slate-300">in public.</span>
+        </h2>
 
-        <p className="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mt-6 font-normal max-w-2xl mx-auto">
+        <p className="text-slate-400 text-sm sm:text-base leading-relaxed mt-3 font-normal max-w-xl">
           Every release, architectural decision, and milestone is shared openly with the community. Here's how VeoLMS is evolving.
         </p>
       </div>
 
-      {/* Serpentine Vector Path Journey Container */}
-      <div className="relative w-full min-h-[1100px] md:min-h-[1250px] py-10">
-        
-        {/* Background Responsive Vector SVG Path */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-0"
-          viewBox="0 0 1000 1300"
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          {/* Base Guide Path */}
-          <path
-            d="M 500 30 C 880 180, 880 400, 500 520 C 120 640, 120 860, 500 980 C 820 1080, 780 1200, 500 1270"
-            stroke="white"
-            strokeOpacity="0.1"
-            strokeWidth="3"
-            strokeDasharray="6 6"
-          />
-
-          {/* Accent Glowing Serpentine Path */}
-          <path
-            d="M 500 30 C 880 180, 880 400, 500 520 C 120 640, 120 860, 500 980 C 820 1080, 780 1200, 500 1270"
-            stroke="#D9FF00"
-            strokeWidth="2.5"
-            strokeOpacity="0.5"
-            strokeDasharray="14 14"
-          />
-        </svg>
-
-        {/* Phase 01: FOUNDATION */}
-        <div className="relative z-10 my-10 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
+      {/* Horizontal Timeline Container */}
+      <div className="relative z-10 w-full overflow-x-auto custom-scrollbar pb-10 pt-6">
+        <div className="min-w-[1050px] relative px-4">
           
-          {/* Floating Editorial Card (Left Side) */}
-          <div
-            onMouseEnter={() => setActivePhase('foundation')}
-            className={`w-full md:w-[480px] bg-[#121316] border rounded-3xl p-8 sm:p-10 relative overflow-hidden transition-all duration-400 shadow-2xl group cursor-pointer ${
-              activePhase === 'foundation'
-                ? 'border-[#D9FF00] scale-[1.02] shadow-[0_10px_40px_rgba(217,255,0,0.1)]'
-                : 'border-white/15 hover:border-white/30'
-            }`}
-          >
-            {/* Background Watermark */}
-            <div className="absolute -right-2 -bottom-4 font-grotesk font-extrabold text-[8rem] text-white/[0.04] select-none pointer-events-none">
-              01
-            </div>
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs text-slate-400 font-bold uppercase tracking-widest">PHASE 01</span>
-                <div className="flex items-center gap-2 font-mono text-[0.7rem] font-bold px-3.5 py-1 rounded-full bg-[#D9FF00] text-[#080809] uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#080809]" />
-                  <span>Released</span>
-                </div>
-              </div>
-
-              <h3 className="font-grotesk text-3xl sm:text-4xl font-extrabold text-white mb-4">
-                Foundation
-              </h3>
-
-              {/* Checkpoint Chips */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {roadmapPhases[0].checkpoints.map((cp, idx) => (
-                  <span
-                    key={idx}
-                    onMouseEnter={() => setHoveredCp(cp.name)}
-                    onMouseLeave={() => setHoveredCp(null)}
-                    className={`font-mono text-xs px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                      hoveredCp === cp.name
-                        ? 'bg-[#D9FF00] text-[#080809] font-bold scale-105'
-                        : 'bg-white/[0.06] border border-white/10 text-slate-200 hover:border-[#D9FF00]/40'
-                    }`}
-                  >
-                    • {cp.name}
-                  </span>
-                ))}
-              </div>
-
-              {/* Description */}
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed border-t border-white/10 pt-4 mt-2">
-                {roadmapPhases[0].description}
-              </p>
-            </div>
+          {/* Main Axis Baseline */}
+          <div className="absolute top-[82px] left-6 right-8 h-[2px] flex items-center pointer-events-none z-0">
+            {/* Completed Path Segment (Pink Line) */}
+            <div className="h-full w-[26%] bg-[#ec4899] shadow-[0_0_10px_rgba(236,72,153,0.8)]" />
+            {/* Mainnet Card Gap & Remaining Path Segment */}
+            <div className="h-full flex-1 bg-white/70" />
+            {/* Right Arrowhead Indicator */}
+            <svg className="w-3 h-3 text-white fill-current shrink-0 -ml-1" viewBox="0 0 10 10">
+              <polygon points="0,0 10,5 0,10" />
+            </svg>
           </div>
 
-          {/* Connector Line & Path Node Marker */}
-          <div className="hidden md:flex items-center gap-4 text-slate-500 font-mono text-xs">
-            <div className={`h-px transition-all duration-300 border-t border-dashed ${activePhase === 'foundation' ? 'w-20 border-[#D9FF00]' : 'w-16 border-white/30'}`} />
-            <div className="relative">
-              <div className="w-7 h-7 rounded-full bg-[#D9FF00] border-4 border-[#080809] shadow-lg shadow-[#D9FF00]/40 relative z-10 flex items-center justify-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#080809]" />
-              </div>
-              <div className="absolute -inset-1 rounded-full bg-[#D9FF00]/30 animate-ping" />
-            </div>
+          {/* Timeline Milestones Columns */}
+          <div className="relative z-10 flex items-start justify-between">
+            
+            {roadmapData.map((node) => {
+              {/* Highlighted MAINNET LAUNCH Box Mounted on Axis */}
+              if (node.isMainnetCard) {
+                return (
+                  <div key={node.id} className="flex flex-col items-center z-20 mx-1">
+                    {/* Empty Space above line for exact alignment */}
+                    <div className="h-10" />
+
+                    {/* Central Card Container sitting on the axis line */}
+                    <div className="bg-[#12131a] border-2 border-[#a855f7] rounded-xl px-5 py-4 text-center shadow-[0_0_25px_rgba(168,85,247,0.35)] relative group transition-all duration-300 hover:scale-105">
+                      <div className="flex flex-col items-center justify-center gap-1">
+                        <span className="text-xl leading-none mb-0.5">🎉</span>
+                        <span className="font-grotesk font-extrabold text-sm sm:text-base text-white uppercase tracking-wider leading-none">
+                          {node.title}
+                        </span>
+                        <span className="font-mono text-[0.62rem] text-[#c084fc] uppercase tracking-widest font-semibold mt-0.5">
+                          {node.subtitle}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              {/* Standard Milestone Node */}
+              return (
+                <div key={node.id} className="flex flex-col items-start w-40 sm:w-44">
+                  
+                  {/* Quarter & Year Header above node */}
+                  <div className="h-10 flex flex-col justify-end mb-2 pl-0.5">
+                    <span
+                      className={`font-grotesk font-bold text-base sm:text-lg leading-none ${
+                        node.isCompleted ? 'text-[#ec4899]' : 'text-slate-300'
+                      }`}
+                    >
+                      {node.quarter}
+                    </span>
+                    <span
+                      className={`font-grotesk font-light text-sm sm:text-base leading-none mt-0.5 ${
+                        node.isCompleted ? 'text-[#f472b6]' : 'text-slate-400'
+                      }`}
+                    >
+                      {node.year}
+                    </span>
+                  </div>
+
+                  {/* Axis Node Circular Indicator */}
+                  <div className="relative my-2 flex items-center justify-start w-full">
+                    <div
+                      className={`w-5 h-5 rounded-full border-2 border-[#0a0b0e] flex items-center justify-center relative z-10 ${
+                        node.isCompleted
+                          ? 'bg-[#ec4899] shadow-[0_0_12px_rgba(236,72,153,0.9)]'
+                          : 'bg-white'
+                      }`}
+                    >
+                      <div
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          node.isCompleted ? 'bg-white' : 'bg-[#0a0b0e]'
+                        }`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Drop Line Stem & Items List Container */}
+                  <div className="pl-2 pt-1 border-l border-white/20 ml-[9px] flex flex-col gap-3 min-h-[140px]">
+                    {node.items?.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2 max-w-[155px]">
+                        {/* Bullet Dot */}
+                        <span
+                          className={`w-1.5 h-1.5 rounded-full mt-1 shrink-0 ${
+                            node.isCompleted
+                              ? 'bg-[#ec4899]'
+                              : 'bg-white/80'
+                          }`}
+                        />
+                        {/* Deliverable Text */}
+                        <span
+                          className={`font-grotesk font-bold text-[0.72rem] sm:text-[0.76rem] tracking-wider uppercase leading-tight ${
+                            item.isHighlighted
+                              ? 'text-[#ec4899]'
+                              : node.isCompleted
+                              ? 'text-white'
+                              : 'text-slate-300'
+                          }`}
+                        >
+                          {item.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
+              );
+            })}
+
           </div>
 
         </div>
-
-        {/* Phase 02: LEARNING EXPERIENCE */}
-        <div className="relative z-10 my-28 flex flex-col md:flex-row-reverse items-center justify-between gap-8 max-w-5xl mx-auto">
-          
-          {/* Floating Editorial Card (Right Side) */}
-          <div
-            onMouseEnter={() => setActivePhase('learning-experience')}
-            className={`w-full md:w-[480px] bg-[#121316] border rounded-3xl p-8 sm:p-10 relative overflow-hidden transition-all duration-400 shadow-2xl group cursor-pointer ${
-              activePhase === 'learning-experience'
-                ? 'border-[#a5b4fc] scale-[1.02] shadow-[0_10px_40px_rgba(165,180,252,0.15)]'
-                : 'border-white/15 hover:border-white/30'
-            }`}
-          >
-            {/* Background Watermark */}
-            <div className="absolute -right-2 -bottom-4 font-grotesk font-extrabold text-[8rem] text-white/[0.04] select-none pointer-events-none">
-              02
-            </div>
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs text-slate-400 font-bold uppercase tracking-widest">PHASE 02</span>
-                <div className="flex items-center gap-2 font-mono text-[0.7rem] font-bold px-3.5 py-1 rounded-full bg-[#a5b4fc] text-[#0f172a] uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0f172a] animate-pulse" />
-                  <span>In Progress</span>
-                </div>
-              </div>
-
-              <h3 className="font-grotesk text-3xl sm:text-4xl font-extrabold text-white mb-4">
-                Learning Experience
-              </h3>
-
-              {/* Checkpoint Chips */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {roadmapPhases[1].checkpoints.map((cp, idx) => (
-                  <span
-                    key={idx}
-                    onMouseEnter={() => setHoveredCp(cp.name)}
-                    onMouseLeave={() => setHoveredCp(null)}
-                    className={`font-mono text-xs px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                      hoveredCp === cp.name
-                        ? 'bg-[#a5b4fc] text-[#0f172a] font-bold scale-105'
-                        : 'bg-white/[0.06] border border-white/10 text-slate-200 hover:border-[#a5b4fc]/40'
-                    }`}
-                  >
-                    • {cp.name}
-                  </span>
-                ))}
-              </div>
-
-              {/* Description */}
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed border-t border-white/10 pt-4 mt-2">
-                {roadmapPhases[1].description}
-              </p>
-            </div>
-          </div>
-
-          {/* Connector Line & Path Node Marker */}
-          <div className="hidden md:flex items-center gap-4 text-slate-500 font-mono text-xs">
-            <div className="relative">
-              <div className="w-7 h-7 rounded-full bg-[#a5b4fc] border-4 border-[#080809] shadow-lg shadow-[#a5b4fc]/40 relative z-10 flex items-center justify-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0f172a]" />
-              </div>
-              <div className="absolute -inset-1 rounded-full bg-[#a5b4fc]/30 animate-pulse" />
-            </div>
-            <div className={`h-px transition-all duration-300 border-t border-dashed ${activePhase === 'learning-experience' ? 'w-20 border-[#a5b4fc]' : 'w-16 border-white/30'}`} />
-          </div>
-
-        </div>
-
-        {/* Phase 03: PLATFORM */}
-        <div className="relative z-10 my-10 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
-          
-          {/* Floating Editorial Card (Left Side) */}
-          <div
-            onMouseEnter={() => setActivePhase('platform')}
-            className={`w-full md:w-[480px] bg-[#121316] border rounded-3xl p-8 sm:p-10 relative overflow-hidden transition-all duration-400 shadow-2xl group cursor-pointer ${
-              activePhase === 'platform'
-                ? 'border-[#38bdf8] scale-[1.02] shadow-[0_10px_40px_rgba(56,189,248,0.15)]'
-                : 'border-white/15 hover:border-white/30'
-            }`}
-          >
-            {/* Background Watermark */}
-            <div className="absolute -right-2 -bottom-4 font-grotesk font-extrabold text-[8rem] text-white/[0.04] select-none pointer-events-none">
-              03
-            </div>
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs text-slate-400 font-bold uppercase tracking-widest">PHASE 03</span>
-                <div className="flex items-center gap-2 font-mono text-[0.7rem] font-bold px-3.5 py-1 rounded-full bg-[#38bdf8] text-[#080809] uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#080809]" />
-                  <span>Planned</span>
-                </div>
-              </div>
-
-              <h3 className="font-grotesk text-3xl sm:text-4xl font-extrabold text-white mb-4">
-                Platform
-              </h3>
-
-              {/* Checkpoint Chips */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {roadmapPhases[2].checkpoints.map((cp, idx) => (
-                  <span
-                    key={idx}
-                    onMouseEnter={() => setHoveredCp(cp.name)}
-                    onMouseLeave={() => setHoveredCp(null)}
-                    className={`font-mono text-xs px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                      hoveredCp === cp.name
-                        ? 'bg-[#38bdf8] text-[#080809] font-bold scale-105'
-                        : 'bg-white/[0.06] border border-white/10 text-slate-200 hover:border-[#38bdf8]/40'
-                    }`}
-                  >
-                    • {cp.name}
-                  </span>
-                ))}
-              </div>
-
-              {/* Description */}
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed border-t border-white/10 pt-4 mt-2">
-                {roadmapPhases[2].description}
-              </p>
-            </div>
-          </div>
-
-          {/* Connector Line & Path Node Marker */}
-          <div className="hidden md:flex items-center gap-4 text-slate-500 font-mono text-xs">
-            <div className={`h-px transition-all duration-300 border-t border-dashed ${activePhase === 'platform' ? 'w-20 border-[#38bdf8]' : 'w-16 border-white/30'}`} />
-            <div className="relative">
-              <div className="w-7 h-7 rounded-full bg-[#38bdf8] border-4 border-[#080809] shadow-lg shadow-[#38bdf8]/40 relative z-10 flex items-center justify-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#080809]" />
-              </div>
-            </div>
-          </div>
-
-        </div>
-
       </div>
 
     </section>

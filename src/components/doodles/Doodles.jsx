@@ -230,3 +230,43 @@ export const BottomCircleBadge = ({ text = "v1.0 BETA" }) => {
     </div>
   );
 };
+
+// 3D Isometric Gem / Cube graphic matching reference image accent icons
+export const Gem3DCube = ({ className = "", size = 90 }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      className={`pointer-events-none drop-shadow-[0_15px_30px_rgba(236,72,153,0.35)] ${className}`}
+    >
+      <defs>
+        <linearGradient id="topFace" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f472b6" />
+          <stop offset="100%" stopColor="#ec4899" />
+        </linearGradient>
+        <linearGradient id="leftFace" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#d946ef" />
+          <stop offset="100%" stopColor="#8b5cf6" />
+        </linearGradient>
+        <linearGradient id="rightFace" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#c084fc" />
+          <stop offset="100%" stopColor="#ec4899" />
+        </linearGradient>
+        <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
+        </linearGradient>
+      </defs>
+      <polygon points="50,10 90,32 90,75 50,95 10,75 10,32" fill="url(#glow)" filter="blur(8px)" opacity="0.6" />
+      <polygon points="50,12 85,30 50,48 15,30" fill="url(#topFace)" opacity="0.95" />
+      <polygon points="15,30 50,48 50,88 15,70" fill="url(#leftFace)" opacity="0.9" />
+      <polygon points="50,48 85,30 85,70 50,88" fill="url(#rightFace)" opacity="0.85" />
+      <line x1="50" y1="12" x2="85" y2="30" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+      <line x1="50" y1="12" x2="15" y2="30" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+      <line x1="50" y1="12" x2="50" y2="48" stroke="#ffffff" strokeWidth="1" opacity="0.5" />
+    </svg>
+  );
+};
+
