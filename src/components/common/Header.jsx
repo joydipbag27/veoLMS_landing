@@ -1,12 +1,16 @@
 import React from 'react';
 import { GithubIcon } from './Icons';
+import veolmsLogo from '../../assets/dark cropped variation.png';
 
 export default function Header({ onToast }) {
   return (
     <header className="w-full max-w-6xl mx-auto px-6 pt-6 pb-2 flex items-center justify-between relative z-30 shrink-0 opacity-85 hover:opacity-100 transition-opacity">
-      <a href="#" className="flex items-center gap-2 font-grotesk text-xl font-extrabold tracking-tight text-white hover:opacity-90 transition-opacity">
-        VeoLMS
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D9FF00]" />
+      <a href="#" className="flex items-center gap-2.5 font-grotesk text-xl font-extrabold tracking-tight text-white hover:opacity-90 transition-opacity group">
+        <img
+          src={veolmsLogo}
+          alt="VeoLMS Logo"
+          className="h-10 w-auto object-contain rounded transition-transform group-hover:scale-105"
+        />
       </a>
 
       <nav className="hidden md:flex items-center gap-8 text-[0.72rem] font-mono uppercase tracking-widest text-slate-400">
