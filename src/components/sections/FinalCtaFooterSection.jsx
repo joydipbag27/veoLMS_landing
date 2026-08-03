@@ -4,7 +4,8 @@ import { GithubIcon, DiscordIcon } from '../common/Icons';
 import { ArrowUpRight } from 'lucide-react';
 
 import futureBgImage from '../../assets/mymind-tZCrFpSNiIQ-unsplash.jpg';
-import darkCroppedLogo from '../../assets/dark cropped variation.png';
+import darkCroppedLogo from '../../assets/veolms-logo/White Logo.svg';
+import veolmsMaskImage from '../../assets/veolms_mask.jpg';
 
 export default function FinalCtaFooterSection({ onToast }) {
   // Image mask style for the word "future"
@@ -19,15 +20,27 @@ export default function FinalCtaFooterSection({ onToast }) {
     color: 'transparent'
   };
 
+  // Image mask style for the word "VeoLMS"
+  const veolmsMaskStyle = {
+    backgroundImage: `url("${veolmsMaskImage}")`,
+    backgroundSize: '100% 200%',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent'
+  };
+
   return (
     <section className="w-full bg-[#080809] border-t border-white/10 relative z-10 pt-24 pb-12 overflow-hidden">
-      
+
       {/* Container */}
       <div className="max-w-6xl mx-auto px-6 relative">
-        
+
         {/* UPPER PORTION: Final Call-To-Action */}
         <div className="text-center max-w-3xl mx-auto mb-24 select-none">
-          
+
           {/* Top Status Tag */}
           <div className="inline-flex items-center gap-2.5 font-mono text-[0.72rem] md:text-xs uppercase tracking-widest text-[#D9FF00] mb-8">
             <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
@@ -55,7 +68,7 @@ export default function FinalCtaFooterSection({ onToast }) {
 
           {/* Primary Action Buttons */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            
+
             <a
               href="https://github.com"
               target="_blank"
@@ -86,22 +99,25 @@ export default function FinalCtaFooterSection({ onToast }) {
 
         {/* LOWER PORTION: Restructured Footer with Dark Cropped Logo on Left & 3 Column Navigation on Right */}
         <div className="pt-16 border-t border-white/10 relative select-none">
-          
+
           {/* Background Watermark Text (similar to reference image) */}
           <div className="absolute right-0 bottom-6 pointer-events-none text-white/[0.02] font-grotesk font-black text-[12rem] sm:text-[16rem] md:text-[22rem] uppercase leading-none tracking-tighter select-none z-0 overflow-hidden translate-x-16 translate-y-12">
             VEOLMS
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 relative z-10">
-            
+
             {/* Left Brand Column: Dark Cropped Logo + Project Summary Description */}
-            <div className="md:col-span-4 flex flex-col items-start pr-0 md:pr-4">
-              <a href="#" className="inline-block mb-4 hover:opacity-90 transition-opacity">
+            <div className="md:col-span-4 flex flex-col items-start  pr-0 md:pr-4">
+              <a href="#" className="inline-flex items-center gap-0 mb-4 hover:opacity-90 transition-opacity group">
                 <img
                   src={darkCroppedLogo}
                   alt="VeoLMS Logo"
-                  className="h-10 sm:h-11 w-auto object-contain"
+                  className="h-10 sm:h-16 w-auto object-contain"
                 />
+                <span style={veolmsMaskStyle} className="font-grotesk text-2xl sm:text-5xl font-extrabold tracking-tight cursor-default select-none">
+                  VeoLMS
+                </span>
               </a>
               <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm font-normal mb-5">
                 A complete, deployable open-source LMS built around video learning, self-hosting, personal adaptability, and practical infrastructure costs.
@@ -113,7 +129,7 @@ export default function FinalCtaFooterSection({ onToast }) {
 
             {/* Right Columns: EXPLORE, COMMUNITY, RESOURCES, LEGAL side-by-side */}
             <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-              
+
               {/* Column 1: EXPLORE (Electric Lime) */}
               <div>
                 <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D9FF00] mb-5">

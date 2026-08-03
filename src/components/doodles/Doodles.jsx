@@ -201,7 +201,7 @@ export const OpenEducationUnderline = ({ className = "" }) => {
 // Sticker Badge 1: Yellow tag anchored to the top-left of composition
 export const TopStickerBadge = ({ text = "OPEN SOURCE LMS" }) => {
   return (
-    <div className="absolute -top-5 -left-1 md:-top-6 md:-left-17 z-30 transform -rotate-7 pointer-events-none">
+    <div className="absolute -top-5 -left-1 md:-top-8 md:-left-20 z-30 transform -rotate-7 pointer-events-none">
       <div className="bg-[#D9FF00] text-[#080809] text-[0.55rem] md:text-[1rem] font-bold font-mono px-2 py-0.5 md:px-2.5 md:py-1 rounded shadow-md shadow-black/40 border border-black/10 leading-tight">
         <span>{text}</span>
       </div>
@@ -212,7 +212,7 @@ export const TopStickerBadge = ({ text = "OPEN SOURCE LMS" }) => {
 // Sticker Badge 2: Lavender tag
 export const RightStickerBadge = ({ text = "Self-Hostable" }) => {
   return (
-    <div className="absolute bottom-0 -right-1 md:top-[38%] md:right-20 z-30 transform rotate-2 pointer-events-none">
+    <div className="absolute bottom-0 -right-1 md:top-[45%] md:right-10 z-30 transform rotate-2 pointer-events-none">
       <div className="bg-[#a5b4fc] text-[#0f172a] text-[0.55rem] md:text-[1rem] font-bold font-mono px-2 py-0.5 rounded shadow-sm border border-white/10 leading-tight">
         <span>{text}</span>
       </div>
@@ -223,7 +223,7 @@ export const RightStickerBadge = ({ text = "Self-Hostable" }) => {
 // Sticker Badge 3: Round orange tag
 export const BottomCircleBadge = ({ text = "v1.0 BETA" }) => {
   return (
-    <div className="absolute -bottom-4 right-2 md:bottom-5 md:right-76 z-30 transform rotate-12 pointer-events-none">
+    <div className="absolute -bottom-1 right-2 md:bottom-3 md:right-66 z-30 transform rotate-12 pointer-events-none">
       <div className="w-7 h-7 md:w-15 md:h-15 rounded-full bg-[#ff7849] text-[#080809] text-[0.45rem] md:text-[1rem] font-bold font-mono flex items-center justify-center text-center shadow-md leading-tight border border-white/10">
         <span>{text}</span>
       </div>
