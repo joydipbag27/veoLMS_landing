@@ -40,21 +40,21 @@ export default function RoadmapSection() {
 
   // Calm, expensive spring physics for effortless 60fps motion
   const smoothProgress = useSpring(scrollYProgress, {
-    damping: 28,
-    stiffness: 80,
-    mass: 0.9
+    damping: 25,
+    stiffness: 90,
+    mass: 0.8
   });
 
   // Transform scroll progress [0, 1] into precise viewport-based horizontal translation
-  const x = useTransform(smoothProgress, [0, 1], ['0vw', '-90vw']);
+  const x = useTransform(smoothProgress, [0, 1], ['0vw', '-92vw']);
 
   // Position of traveling flare/comet along timeline
-  const cometLeft = useTransform(smoothProgress, [0, 1], ['4%', '95%']);
+  const cometLeft = useTransform(smoothProgress, [0, 1], ['4%', '88%']);
 
   return (
     <section 
       ref={targetRef} 
-      className="relative h-[320vh] w-full bg-[#080809] select-none"
+      className="relative h-[220vh] w-full bg-[#080809] select-none"
     >
       {/* Sticky Pinned Keynote Viewport */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-10 sm:py-20 px-6 sm:px-12 md:px-20">
