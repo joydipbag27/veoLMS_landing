@@ -1,9 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { GithubIcon } from "./Icons";
 import veolmsLogo from "../../assets/veolms-logo/White Logo.svg";
 import veolmsMaskImage from "../../assets/veolms_mask.jpg";
 
-export default function Header({ onToast }) {
+export default function Header({ onToast, isAppLoaded = true }) {
   // Vibrant text mask style matching the hero section for "LMS"
   const lmsGradientStyle = {
     backgroundImage: `url(${veolmsMaskImage}), linear-gradient(135deg, #D9FF00 0%, #a3e635 100%)`,
@@ -31,7 +32,12 @@ export default function Header({ onToast }) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full glass-header bg-[#080809]/60 backdrop-blur-xl border-b border-white/[0.08] transition-all duration-300">
+    <motion.header 
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: isAppLoaded ? 1 : 0, y: isAppLoaded ? 0 : -10 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 w-full glass-header bg-[#080809]/60 backdrop-blur-xl border-b border-white/[0.08] transition-all duration-300"
+    >
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-3 sm:py-3.5 flex items-center justify-between relative">
         {/* Left: Combined Clickable Brand (Logo + Wordmark) */}
         <a
@@ -48,16 +54,26 @@ export default function Header({ onToast }) {
             alt="VeoLMS Logo"
             className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 ease-out"
           />
-          <span className="font-space font-bold text-xl sm:text-2xl tracking-tight leading-none flex items-center transition-all duration-300 group-hover:brightness-145">
+          <motion.span 
+            initial={{ opacity: 0, x: -5 }}
+            animate={{ opacity: isAppLoaded ? 1 : 0, x: isAppLoaded ? 0 : -5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="font-space font-bold text-xl sm:text-2xl tracking-tight leading-none flex items-center transition-all duration-300 group-hover:brightness-125"
+          >
             <span className="text-white">Veo</span>
             <span style={lmsGradientStyle} className="ml-[2px]">
               LMS
             </span>
-          </span>
+          </motion.span>
         </a>
 
         {/* Center: Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10 text-xs font-mono uppercase tracking-widest text-slate-400 absolute left-1/2 -translate-x-1/2">
+        <motion.nav 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isAppLoaded ? 1 : 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="hidden md:flex items-center gap-8 lg:gap-10 text-xs font-mono uppercase tracking-widest text-slate-400 absolute left-1/2 -translate-x-1/2"
+        >
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -77,25 +93,33 @@ export default function Header({ onToast }) {
               <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-white via-[#D9FF00] to-[#D9FF00] scale-x-0 group-hover/nav:scale-x-100 transition-transform duration-300 ease-out origin-left rounded-full shadow-[0_0_8px_rgba(217,255,0,0.6)]" />
             </a>
           ))}
-        </nav>
+        </motion.nav>
 
-        {/* Far Right: GitHub Action Button */}
-        <div className="flex items-center gap-3 shrink-0">
+        {/* Right: GitHub Action Button */}
+        <motion.div 
+          initial={{ opacity: 0, x: 5 }}
+          animate={{ opacity: isAppLoaded ? 1 : 0, x: isAppLoaded ? 0 : 5 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex items-center gap-3"
+        >
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 bg-white/[0.04] border border-white/15 hover:border-[#D9FF00]/50 hover:bg-[#D9FF00]/10 text-slate-200 hover:text-white px-4 py-2 rounded-full text-xs font-medium font-mono transition-all duration-200 shadow-md hover:shadow-[0_0_20px_rgba(217,255,0,0.2)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-            onClick={() => onToast?.("⭐ Starring VeoLMS on GitHub")}
+            onClick={() => onToast?.("⭐ Starred on GitHub!")}
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer"
           >
-            <GithubIcon size={15} />
-            <span className="hidden sm:inline">GitHub</span>
-            <span className="text-[#D9FF00] font-mono text-[0.72rem] font-bold">
-              ★ 4.9k
+            <GithubIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 group-hover:text-white transition-colors" />
+            <span className="text-xs font-mono text-slate-300 group-hover:text-white font-medium">
+              GitHub
+            </span>
+            <span className="flex items-center gap-1 font-mono text-[0.68rem] text-[#D9FF00] bg-[#D9FF00]/10 px-2 py-0.5 rounded-full border border-[#D9FF00]/20 font-bold ml-0.5">
+              <span>★</span>
+              <span>4.9k</span>
             </span>
           </a>
-        </div>
+        </motion.div>
       </div>
-    </header>
+    </motion.header>
   );
 }

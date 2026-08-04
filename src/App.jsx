@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import Header from "./components/common/Header";
 import Toast from "./components/common/Toast";
+import PageLoader from "./components/common/PageLoader";
 
 import HeroSection from "./components/sections/HeroSection";
 import VisionSection from "./components/sections/VisionSection";
@@ -20,6 +22,7 @@ import secondRibbonBg from "./assets/ribbons_bg/cropped ribbon.png";
 
 export default function App() {
   const [activeToast, setActiveToast] = useState(null);
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
   const footerRef = useRef(null);
   const [footerHeight, setFooterHeight] = useState(0);
 
@@ -70,14 +73,22 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#080809] text-white flex flex-col justify-between relative selection:bg-[#D9FF00] selection:text-[#080809]">
+      {/* 3-Phase Premium Brand Loader */}
+      <PageLoader onComplete={() => setIsAppLoaded(true)} />
+
       {/* Toast Notification */}
       <Toast message={activeToast} />
 
       {/* Header Navigation Component */}
-      <Header onToast={showToast} />
+      <Header onToast={showToast} isAppLoaded={isAppLoaded} />
 
       {/* Main Content Sections (Elevated z-10 with dark background and shadow curtain) */}
-      <main className="relative z-10 bg-[#080809] flex-1 flex flex-col items-center justify-center w-full pt-16 sm:pt-20 shadow-[0_25px_60px_rgba(0,0,0,0.95)]">
+      <motion.main 
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: isAppLoaded ? 1 : 0, y: isAppLoaded ? 0 : 15 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 bg-[#080809] flex-1 flex flex-col items-center justify-center w-full pt-16 sm:pt-20 shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
+      >
         
         {/* Continuous Scoped Wrapper for Hero, Vision & Principles */}
         <div className="relative w-full flex flex-col items-center overflow-hidden">
@@ -118,7 +129,7 @@ export default function App() {
         <RoadmapSection />
         <ContributeSection onToast={showToast} />
         <FinalCtaSection onToast={showToast} />
-      </main>
+      </motion.main>
 
       {/* Footer Reveal Container (motion.dev under-page reveal pattern) */}
       <div
