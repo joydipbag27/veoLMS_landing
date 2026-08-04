@@ -7,8 +7,8 @@ import futureBgImage from '../../assets/mymind-tZCrFpSNiIQ-unsplash.jpg';
 import darkCroppedLogo from '../../assets/veolms-logo/White Logo.svg';
 import veolmsMaskImage from '../../assets/veolms_mask.jpg';
 
-export default function FinalCtaFooterSection({ onToast }) {
-  // Image mask style for the word "future"
+// Upper Call-To-Action Section
+export function FinalCtaSection({ onToast }) {
   const futureMaskStyle = {
     backgroundImage: `url("${futureBgImage}")`,
     backgroundSize: '100% 200%',
@@ -20,34 +20,15 @@ export default function FinalCtaFooterSection({ onToast }) {
     color: 'transparent'
   };
 
-  // Image mask style for the word "VeoLMS"
-  const veolmsMaskStyle = {
-    backgroundImage: `url("${veolmsMaskImage}")`,
-    backgroundSize: '100% 200%',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    color: 'transparent'
-  };
-
   return (
-    <section className="w-full bg-[#080809] border-t border-white/10 relative z-10 pt-24 pb-12 overflow-hidden">
-
-      {/* Container */}
+    <section className="w-full bg-[#080809] border-t border-white/10 relative z-10 pt-24 pb-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative">
-
-        {/* UPPER PORTION: Final Call-To-Action */}
-        <div className="text-center max-w-3xl mx-auto mb-24 select-none">
-
-          {/* Top Status Tag */}
+        <div className="text-center max-w-3xl mx-auto select-none">
           <div className="inline-flex items-center gap-2.5 font-mono text-[0.72rem] md:text-xs uppercase tracking-widest text-[#D9FF00] mb-8">
             <span className="w-2 h-2 rounded-full bg-[#D9FF00] animate-pulse" />
             <span className="text-slate-300 font-semibold">JOIN THE JOURNEY</span>
           </div>
 
-          {/* Headline */}
           <div className="select-none flex flex-col items-center mb-8">
             <h2 className="font-grotesk font-extrabold uppercase text-white text-[3.2rem] sm:text-[5rem] md:text-[6.2rem] leading-[0.9] tracking-tight text-center">
               Ready to build the{' '}
@@ -61,14 +42,11 @@ export default function FinalCtaFooterSection({ onToast }) {
             </div>
           </div>
 
-          {/* Supporting Copy */}
           <p className="text-slate-300 text-base sm:text-lg md:text-xl leading-relaxed font-normal max-w-2xl mx-auto">
             VeoLMS is still evolving, and we're building it together. Whether you write code, improve documentation, support development, or simply believe education should be open, we'd love to have you with us.
           </p>
 
-          {/* Primary Action Buttons */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-
             <a
               href="https://github.com"
               target="_blank"
@@ -92,23 +70,36 @@ export default function FinalCtaFooterSection({ onToast }) {
               <span>Join Discord</span>
               <ArrowUpRight size={16} />
             </a>
-
           </div>
-
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* LOWER PORTION: Restructured Footer with Dark Cropped Logo on Left & 3 Column Navigation on Right */}
-        <div className="pt-16 border-t border-white/10 relative select-none">
+// Lower Footer Navigation Section (Under-page Reveal)
+export function FooterSection({ onToast }) {
+  const veolmsMaskStyle = {
+    backgroundImage: `url("${veolmsMaskImage}")`,
+    backgroundSize: '100% 200%',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent'
+  };
 
-          {/* Background Watermark Text (similar to reference image) */}
+  return (
+    <footer className="w-full bg-[#080809] border-t border-white/10 relative z-10 pt-16 pb-12 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 relative">
+        <div className="relative select-none">
           <div className="absolute right-0 bottom-6 pointer-events-none text-white/[0.02] font-grotesk font-black text-[12rem] sm:text-[16rem] md:text-[22rem] uppercase leading-none tracking-tighter select-none z-0 overflow-hidden translate-x-16 translate-y-12">
             VEOLMS
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 relative z-10">
-
-            {/* Left Brand Column: Dark Cropped Logo + Project Summary Description */}
-            <div className="md:col-span-4 flex flex-col items-start  pr-0 md:pr-4">
+            <div className="md:col-span-4 flex flex-col items-start pr-0 md:pr-4">
               <a href="#" className="inline-flex items-center group mb-4 select-none cursor-pointer">
                 <img
                   src={darkCroppedLogo}
@@ -130,98 +121,57 @@ export default function FinalCtaFooterSection({ onToast }) {
               </div>
             </div>
 
-            {/* Right Columns: EXPLORE, COMMUNITY, RESOURCES, LEGAL side-by-side */}
             <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-
-              {/* Column 1: EXPLORE (Electric Lime) */}
               <div>
                 <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D9FF00] mb-5">
                   EXPLORE
                 </h4>
                 <ul className="space-y-3 font-mono text-xs sm:text-sm text-slate-400">
-                  <li>
-                    <a href="#roadmap" className="hover:text-white transition-colors">Roadmap</a>
-                  </li>
-                  <li>
-                    <a href="#docs" onClick={(e) => { e.preventDefault(); onToast?.("📚 Documentation"); }} className="hover:text-white transition-colors">Documentation</a>
-                  </li>
-                  <li>
-                    <a href="#architecture" onClick={(e) => { e.preventDefault(); onToast?.("⚡ Architecture"); }} className="hover:text-white transition-colors">Architecture</a>
-                  </li>
-                  <li>
-                    <a href="#releases" onClick={(e) => { e.preventDefault(); onToast?.("🚀 Releases"); }} className="hover:text-white transition-colors">Releases</a>
-                  </li>
+                  <li><a href="#roadmap" className="hover:text-white transition-colors">Roadmap</a></li>
+                  <li><a href="#docs" onClick={(e) => { e.preventDefault(); onToast?.("📚 Documentation"); }} className="hover:text-white transition-colors">Documentation</a></li>
+                  <li><a href="#architecture" onClick={(e) => { e.preventDefault(); onToast?.("⚡ Architecture"); }} className="hover:text-white transition-colors">Architecture</a></li>
+                  <li><a href="#releases" onClick={(e) => { e.preventDefault(); onToast?.("🚀 Releases"); }} className="hover:text-white transition-colors">Releases</a></li>
                 </ul>
               </div>
 
-              {/* Column 2: COMMUNITY (Lavender / Soft Purple) */}
               <div>
                 <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#a5b4fc] mb-5">
                   COMMUNITY
                 </h4>
                 <ul className="space-y-3 font-mono text-xs sm:text-sm text-slate-400">
-                  <li>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Source Code</a>
-                  </li>
-                  <li>
-                    <a href="#discussions" onClick={(e) => { e.preventDefault(); onToast?.("💬 GitHub Discussions"); }} className="hover:text-white transition-colors">Discussions</a>
-                  </li>
-                  <li>
-                    <a href="#contribute" className="hover:text-white transition-colors">Contributing</a>
-                  </li>
-                  <li>
-                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Discord</a>
-                  </li>
+                  <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Source Code</a></li>
+                  <li><a href="#discussions" onClick={(e) => { e.preventDefault(); onToast?.("💬 GitHub Discussions"); }} className="hover:text-white transition-colors">Discussions</a></li>
+                  <li><a href="#contribute" className="hover:text-white transition-colors">Contributing</a></li>
+                  <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Discord</a></li>
                 </ul>
               </div>
 
-              {/* Column 3: RESOURCES (Vibrant Coral Orange) */}
               <div>
                 <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#ff7849] mb-5">
                   RESOURCES
                 </h4>
                 <ul className="space-y-3 font-mono text-xs sm:text-sm text-slate-400">
-                  <li>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
-                  </li>
-                  <li>
-                    <a href="#blog" onClick={(e) => { e.preventDefault(); onToast?.("📰 Open Education Blog"); }} className="hover:text-white transition-colors">Blog</a>
-                  </li>
-                  <li>
-                    <a href="#changelog" onClick={(e) => { e.preventDefault(); onToast?.("📝 Changelog"); }} className="hover:text-white transition-colors">Changelog</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sponsor</a>
-                  </li>
+                  <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
+                  <li><a href="#blog" onClick={(e) => { e.preventDefault(); onToast?.("📰 Open Education Blog"); }} className="hover:text-white transition-colors">Blog</a></li>
+                  <li><a href="#changelog" onClick={(e) => { e.preventDefault(); onToast?.("📝 Changelog"); }} className="hover:text-white transition-colors">Changelog</a></li>
+                  <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sponsor</a></li>
                 </ul>
               </div>
 
-              {/* Column 4: LEGAL (Sky Blue) */}
               <div>
                 <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#38bdf8] mb-5">
                   LEGAL
                 </h4>
                 <ul className="space-y-3 font-mono text-xs sm:text-sm text-slate-400">
-                  <li>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AGPL-3.0</a>
-                  </li>
-                  <li>
-                    <a href="#privacy" onClick={(e) => { e.preventDefault(); onToast?.("🔒 Privacy Policy"); }} className="hover:text-white transition-colors">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="#coc" onClick={(e) => { e.preventDefault(); onToast?.("🤝 Code of Conduct"); }} className="hover:text-white transition-colors">Conduct</a>
-                  </li>
-                  <li>
-                    <a href="#security" onClick={(e) => { e.preventDefault(); onToast?.("🛡️ Security Policy"); }} className="hover:text-white transition-colors">Security</a>
-                  </li>
+                  <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AGPL-3.0</a></li>
+                  <li><a href="#privacy" onClick={(e) => { e.preventDefault(); onToast?.("🔒 Privacy Policy"); }} className="hover:text-white transition-colors">Privacy Policy</a></li>
+                  <li><a href="#coc" onClick={(e) => { e.preventDefault(); onToast?.("🤝 Code of Conduct"); }} className="hover:text-white transition-colors">Conduct</a></li>
+                  <li><a href="#security" onClick={(e) => { e.preventDefault(); onToast?.("🛡️ Security Policy"); }} className="hover:text-white transition-colors">Security</a></li>
                 </ul>
               </div>
-
             </div>
-
           </div>
 
-          {/* Sub-bar line & credits */}
           <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 font-mono text-xs select-none relative z-10">
             <div className="uppercase tracking-widest text-[0.68rem] text-slate-400 font-semibold text-center sm:text-left">
               BUILT, BROKEN, DEBUGGED, AND SHIPPED FOR OPEN EDUCATION.
@@ -230,11 +180,17 @@ export default function FinalCtaFooterSection({ onToast }) {
               © {new Date().getFullYear()} VEOLMS
             </div>
           </div>
-
         </div>
-
       </div>
+    </footer>
+  );
+}
 
-    </section>
+export default function FinalCtaFooterSection({ onToast }) {
+  return (
+    <>
+      <FinalCtaSection onToast={onToast} />
+      <FooterSection onToast={onToast} />
+    </>
   );
 }
