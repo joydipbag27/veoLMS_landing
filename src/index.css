@@ -2,22 +2,24 @@
 
 @theme {
   --color-bg-dark: #080809;
-  --color-accent-neon: #D9FF00;
+  --color-accent-neon: #d9ff00;
   --color-accent-neon-hover: #e5ff33;
-  --font-grotesk: 'Cabinet Grotesk', 'Satoshi', 'Syne', 'Bricolage Grotesque', sans-serif;
-  --font-editorial: 'Instrument Serif', 'Cormorant Garamond', serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-grotesk:
+    "Cabinet Grotesk", "Satoshi", "Syne", "Bricolage Grotesque", sans-serif;
+  --font-editorial: "Instrument Serif", "Cormorant Garamond", serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 :root {
   --bg-dark: #080809;
-  --accent-neon: #D9FF00;
+  --accent-neon: #d9ff00;
   --accent-neon-hover: #e5ff33;
-  --font-grotesk: 'Cabinet Grotesk', 'Satoshi', 'Syne', 'Bricolage Grotesque', sans-serif;
-  --font-editorial: 'Instrument Serif', 'Cormorant Garamond', serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-grotesk:
+    "Cabinet Grotesk", "Satoshi", "Syne", "Bricolage Grotesque", sans-serif;
+  --font-editorial: "Instrument Serif", "Cormorant Garamond", serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 * {
@@ -30,7 +32,7 @@ body {
   color: #ffffff;
   font-family: var(--font-body);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -69,9 +71,17 @@ body {
     3px 0 0 #080809,
     0 -3px 0 #080809,
     0 3px 0 #080809;
-  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .editorial-overlap:hover {
   opacity: 0.95;
+}
+
+/* Glassmorphism Sticky Header */
+.glass-header {
+  background-color: rgba(8, 8, 9, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
 }

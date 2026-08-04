@@ -47,13 +47,14 @@ export default function HeroSection({ onToast }) {
         <BottomCircleBadge text="v1.0 BETA" />
 
         {/* Top Phrase: Meet VeoLMS */}
-        <div className="flex items-center gap-3 mb-1 sm:mb-2 ml-1 sm:ml-2">
-          <div className="font-grotesk text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
-            <span>Meet</span>
-            <span style={veolmsMaskStyle} className="font-extrabold cursor-default select-none">
-              VeoLMS
+        <div className="flex items-baseline gap-2 mb-1 sm:mb-2 ml-1 sm:ml-2 select-none font-space font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-none">
+          <span className="text-white">Meet</span>
+          <span className="inline-flex items-baseline">
+            <span className="text-white">Veo</span>
+            <span style={veolmsMaskStyle} className="ml-[2px]">
+              LMS
             </span>
-          </div>
+          </span>
         </div>
 
         {/* Line 1: THE OPEN (Solid White) */}

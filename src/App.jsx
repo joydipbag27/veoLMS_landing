@@ -21,7 +21,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080809] text-white flex flex-col justify-between relative overflow-x-hidden selection:bg-[#D9FF00] selection:text-[#080809]">
+    <div className="min-h-screen bg-[#080809] text-white flex flex-col justify-between relative overflow-x-clip selection:bg-[#D9FF00] selection:text-[#080809]">
       
       {/* Toast Notification */}
       <Toast message={activeToast} />
@@ -30,7 +30,7 @@ export default function App() {
       <Header onToast={showToast} />
 
       {/* Main Content Sections */}
-      <main className="flex-1 flex flex-col items-center justify-center w-full">
+      <main className="flex-1 flex flex-col items-center justify-center w-full pt-16 sm:pt-20">
         <HeroSection onToast={showToast} />
         <VisionSection />
         <PrinciplesSection />

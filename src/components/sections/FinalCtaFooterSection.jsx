@@ -109,14 +109,17 @@ export default function FinalCtaFooterSection({ onToast }) {
 
             {/* Left Brand Column: Dark Cropped Logo + Project Summary Description */}
             <div className="md:col-span-4 flex flex-col items-start  pr-0 md:pr-4">
-              <a href="#" className="inline-flex items-center gap-0 mb-4 hover:opacity-90 transition-opacity group">
+              <a href="#" className="inline-flex items-center group mb-4 select-none cursor-pointer">
                 <img
                   src={darkCroppedLogo}
                   alt="VeoLMS Logo"
-                  className="h-10 sm:h-16 w-auto object-contain"
+                  className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
-                <span style={veolmsMaskStyle} className="font-grotesk text-2xl sm:text-5xl font-extrabold tracking-tight cursor-default select-none">
-                  VeoLMS
+                <span className="font-space font-bold text-3xl sm:text-4xl tracking-tight leading-none flex items-center transition-all duration-300 group-hover:brightness-125">
+                  <span className="text-white">Veo</span>
+                  <span style={veolmsMaskStyle} className="ml-[3px]">
+                    LMS
+                  </span>
                 </span>
               </a>
               <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm font-normal mb-5">
